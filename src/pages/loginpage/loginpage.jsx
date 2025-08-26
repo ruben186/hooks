@@ -5,7 +5,7 @@ import { auth, googleProvider, db } from '../../firebase';
 import { signInWithEmailAndPassword, fetchSignInMethodsForEmail, linkWithCredential, EmailAuthProvider, signInWithPopup } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import './loginpage.css';
-//import logo from '../../assets/brilla.png';
+import logo from '../../assets/logorc.png';
 import { Link } from "react-router-dom";
 function Loginpage (){
     const [email, setEmail] = useState('');
@@ -106,52 +106,66 @@ function Loginpage (){
       }
       return null;
     }; 
-    return(
-    <div>
-        <h1>HOME</h1>
-        <Link to= "/register">
-        <button> IR A REGISTRO</button>
-        </Link>
-<Link to= "/forgot">
-<button>OLVIDE MI CONTRASENIA</button>
-</Link>
-<Link to= "/hooks">
-<button>ir a Hooks</button>
-</Link>
-
-<div class="form-card w-50 mx-auto">
-        <h3 class="text-center mb-4">Iniciar Sesión</h3>
-        <form id="loginForm"> 
-            <div class="mb-3">
-                <label for="email" class="form-label">Correo electrónico</label>
-                <input type="email" class="form-control" id="email" placeholder="tucorreo@ejemplo.com" required />
+    return (
+      <div className="d-flex justify-content-center align-items-center min-vh-100 bg-gradient">
+        <div className="form-card">
+          <img
+            src={logo}
+            alt="Logo rc"
+            className="logo mb-3 d-block mx-auto"
+            style={{ width: '250px' }}
+          />
+          <h3 className="mb-4 text-center">Iniciar Sesión</h3>
+  
+          <form onSubmit={handleSubmit}>
+            <div className="mb-3">
+              <label htmlFor="email" className="form-label">Correo electrónico</label>
+              <input
+                type="email"
+                className="form-control"
+                id="email"
+                placeholder="tucorreo@ejemplo.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
             </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Contraseña</label>
-                <div class="input-group">
-                    <input type="password" class="form-control" id="password" placeholder="Contraseña" required />
-                    <button class="btn btn-outline-secondary" type="button" id="togglePassword">
-                        <i class="bi bi-eye"></i>
-                    </button>
-                </div>
+            <div className="mb-3">
+              <label htmlFor="password" className="form-label">Contraseña</label>
+              <input
+                type="password"
+                className="form-control"
+                id="password"
+                placeholder="Contraseña"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
             </div>
-            <div class="d-grid">
-                <button type="submit" class="btn btn-primary">Entrar</button>
+            <div className="d-grid">
+              <button type="submit" className="btn btn-primary">Entrar</button>
             </div>
-        </form>
-        <div class="text-center mt-3">
-           
-            <Link to= "/register">
-            <a >¿No tienes cuenta? Regístrate</a>
-        </Link><br />
-                        <Link to= "/forgot">
-            <a >¿Olvidaste tu contraseña?</a>
-</Link>
+          </form>
+  
+          <div className="text-center mt-3">
+            <button
+              type="button"
+              onClick={handleGoogleLogin}
+              className="btn btn-danger w-100 d-flex align-items-center justify-content-center gap-2 mb-2"
+            >
+              <img
+                src="https://img.icons8.com/color/48/google-logo.png"
+                alt="Google logo"
+                style={{ width: '20px', height: '20px' }}
+              />
+              Iniciar sesión con Google
+            </button>
+            <a href="/register">¿No tienes cuenta? Regístrate</a><br />
+            <a href="/forgot">¿Olvidaste tu contraseña?</a>
+          </div>
         </div>
-    </div>
-</div>      
-        
-);
+      </div>
+    );
 
 }
 
