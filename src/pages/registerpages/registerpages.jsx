@@ -1,14 +1,14 @@
 
 import { Link } from "react-router-dom";
-
+const handleGoBack = () => {
+    window.location.href = '/';
+  };
 function RegisterPage (){
     return(
         <div>
-            <h1>REGISTRO</h1>
-            <Link to= "/">
-            <button> volver al login</button>
-            </Link>
+           
             <div class="form-card w-50 mx-auto">
+                
         <h3 class="text-center mb-4">Registro de Usuario</h3>
         <form>
             <div class="mb-3">
@@ -54,8 +54,10 @@ function RegisterPage (){
                 <input type="text" class="form-control"/>
             </div>
             <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-primary">Enviar registro</button>
-                <a href="../index.html" class="btn btn-outline-secondary">Volver al login</a>
+                <button type="submit" class="btn btn-primary">Enviar registro</button> <br />
+                <button type="button" className="btn btn-outline-secondary" onClick={handleGoBack}>
+              Volver al inicio de sesión
+            </button>
             </div>
         </form>
     </div>
