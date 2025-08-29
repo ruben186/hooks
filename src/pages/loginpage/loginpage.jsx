@@ -81,7 +81,7 @@ function Loginpage (){
           timer: 2000,
           showConfirmButton: false
         }).then(() => {
-          window.location.href = "/dashboard";
+          window.location.href = "/protegida";
         });
   
       } catch (error) {
