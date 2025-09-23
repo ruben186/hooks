@@ -5,7 +5,7 @@ import { FaSignOutAlt } from 'react-icons/fa';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import logo from '../../assets/logorc.png';
+import logo from '../../assets/logo luzjaime.jpg';
 import userDefault from '../../assets/user.jpg'; 
 import Swal from 'sweetalert2';
 

@@ -1,0 +1,40 @@
+body {
+    background: linear-gradient(135deg, #812c94, #c13c3c);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', sans-serif;
+    padding: 1rem;
+}
+
+
+
+.form-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    width: 100%;
+    max-width: 500px;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #cbff63;
+}
+
+.btn-primary {
+    background-color: #6cc173;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #00f00c;
+    color: black;
+}
+
+.btn-outline-secondary:hover {
+    color: white;
+    background-color: #63ff78;
+}

@@ -5,7 +5,7 @@ import { auth, googleProvider, db } from '../../firebase';
 import { signInWithEmailAndPassword, fetchSignInMethodsForEmail, linkWithCredential, EmailAuthProvider, signInWithPopup } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import './loginpage.css';
-import logo from '../../assets/logorc.png';
+import logo from '../../assets/logo luzjaime.jpg';
 import { Link } from "react-router-dom";
 function Loginpage (){
     const [email, setEmail] = useState('');
@@ -81,7 +81,7 @@ function Loginpage (){
           timer: 2000,
           showConfirmButton: false
         }).then(() => {
-          window.location.href = "/protegida";
+          window.location.href = "/dashboard";
         });
   
       } catch (error) {
