@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
 import "./ResetPasswordPage.css";
-import logo from "../../assets/logorc.png";
+import logo from "../../assets/gigapixel-logo luzjaime2.png";
 import { confirmPasswordReset, getAuth } from "firebase/auth";
 import { useSearchParams } from "react-router-dom";
 

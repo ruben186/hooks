@@ -68,7 +68,7 @@
 
 /* MAIN CONTENT */
 .main-content {
-    background: #fff;
+    background: #eee3eb;
     min-height: calc(100vh - 130px);
     display: flex;
     justify-content: center;
@@ -86,6 +86,7 @@
     max-width: 300px;
     height: auto;
     margin-bottom: 20px;
+    border-radius: 50%;
 }
 
 .welcome-title {

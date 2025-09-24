@@ -5,7 +5,7 @@ import { auth, googleProvider, db } from '../../firebase';
 import { signInWithEmailAndPassword, fetchSignInMethodsForEmail, linkWithCredential, EmailAuthProvider, signInWithPopup } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import './loginpage.css';
-import logo from '../../assets/logo luzjaime.jpg';
+import logo from '../../assets/gigapixel-logo luzjaime2.png';
 import { Link } from "react-router-dom";
 function Loginpage (){
     const [email, setEmail] = useState('');

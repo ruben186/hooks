@@ -6,10 +6,10 @@ import { FaEdit, FaTrash, FaUserCircle } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import { auth, db } from '../../firebase';
 import { signOut } from 'firebase/auth';
-import './AuxiliaresPage.css';
+import './ClientesPage.css';
 import logo from '../../assets/gigapixel-logo luzjaime2.png';
 
-function AuxiliaresPage() {
+function ClientePage() {
     const navigate = useNavigate();
     const [auxiliares, setAuxiliares] = useState([]);
     const [showModal, setShowModal] = useState(false);
@@ -169,7 +169,7 @@ function AuxiliaresPage() {
             <main className="main-content">
                 <Container className="mt-4">
                     <h2 className="page-title text-center mb-4">
-                        AUXILIARES DE SERVICIOS REGISTRADOS EN LUZJAIME ARTISTA EN BELLEZA
+                        CLIENTES REGISTRADOS 
                     </h2>
                     <div className="table-container">
                         <Table striped bordered hover responsive className="tabla-auxiliares">
@@ -377,4 +377,4 @@ function AuxiliaresPage() {
     );
 }
 
-export default AuxiliaresPage;
+export default ClientePage;

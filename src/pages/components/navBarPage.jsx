@@ -5,7 +5,7 @@ import { FaSignOutAlt } from 'react-icons/fa';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import logo from '../../assets/logo luzjaime.jpg';
+import logo from '../../assets/gigapixel-logo luzjaime2.png';
 import userDefault from '../../assets/user.jpg'; 
 import Swal from 'sweetalert2';
 
@@ -68,7 +68,7 @@ import Swal from 'sweetalert2';
         src={logo}
         alt="Brilla Logo"
         height="40"
-        className="d-inline-block align-top"
+        className="d-inline-block align-top rounded-circle  "
       />
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />

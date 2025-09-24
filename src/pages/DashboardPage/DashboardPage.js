@@ -5,7 +5,7 @@ import { FaSignOutAlt } from 'react-icons/fa';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import logo from '../../assets/logo luzjaime.jpg';
+import logo from '../../assets/gigapixel-logo luzjaime2.png';
 import userDefault from '../../assets/user.jpg'; 
 import './DashboardPage.css';
 import Swal from 'sweetalert2';
@@ -35,9 +35,10 @@ function DashboardPage() {
       <main className="main-content">
         <div>
           <img src={logo} alt="Brilla Logo" className="main-logo" />
-          <h1 className="welcome-title">Welcome to luzjaime System</h1>
+          
+          <h1 className="welcome-title">Bienvenida al Sistema LuzJaime Artista en Belleza</h1>
           <p className="welcome-text">
-            Manage your clients, services, and more efficiently!
+            Administra tus Clientes, Servicios y mucho mas Eficientemente!
           </p>
 
           <p className="welcome-text">

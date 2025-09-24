@@ -5,7 +5,7 @@ import { auth } from '../../firebase';
 import { db } from '../../firebase';
 import { doc, setDoc } from 'firebase/firestore';
 import './RegisterPage.css';
-import logo from '../../assets/logo luzjaime.jpg';
+import logo from '../../assets/gigapixel-logo luzjaime2.png';
 
 function Register() {
     const [formData, setFormData] = useState({
