@@ -18,7 +18,7 @@ import DashboardPage from './pages/DashboardPage/DashboardPage';
 import ResetPasswordPage from './pages/ResetPasswordPage/ResetPasswordPage';
 import AuxiliaresPage from './pages/AuxiliaresPage/AuxiliaresPage';
 import ClientesPage from './pages/ClientesPage/ClientesPage';
-
+import ServiciosPage from './pages/Servicios/Servicios';
 function App() {
   return (
     <BrowserRouter>
@@ -34,6 +34,7 @@ function App() {
         <Route path="/dashboard" element={<ProtectedRoute> <DashboardPage /> </ProtectedRoute> } />
         <Route path="/auxiliares" element={<ProtectedRoute> <AuxiliaresPage /> </ProtectedRoute> } />
         <Route path="/clientes" element={<ProtectedRoute> <ClientesPage /> </ProtectedRoute> } />
+        <Route path="/Servicios" element={<ProtectedRoute> <ServiciosPage/> </ProtectedRoute> } />
         {/* Ruta genérica para páginas no encontradas */}
         <Route path="*" element={<NotFoundPage />} />
 

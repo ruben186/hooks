@@ -208,7 +208,7 @@ function AuxiliaresPage() {
                                         : "badge bg-primary"  
                                     }
                                 >
-                                    {aux.rol || 'Auxiliar'}
+                                    {aux.rol || 'Cliente'}
                                 </span>
                                 </td>
                                         <td>
@@ -356,6 +356,7 @@ function AuxiliaresPage() {
                                     <option value="Admin">Admin</option>
 
                                     <option value="Auxiliar">Auxiliar</option>
+                                    <option value="Cliente">Cliente</option>
 
                                 </Form.Select>
 
