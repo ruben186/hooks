@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { collection, getDocs, updateDoc, deleteDoc, doc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import { Navbar, Nav, Container, NavDropdown, Table, Button, Form, Modal, Image } from 'react-bootstrap';
-import { FaEdit, FaTrash, FaUserCircle } from 'react-icons/fa';
+import { FaEdit, FaTrash,FaUserCircle } from 'react-icons/fa';
+import { GrUserNew } from "react-icons/gr";
 import Swal from 'sweetalert2';
 import { auth, db } from '../../firebase';
 import { signOut } from 'firebase/auth';
@@ -13,6 +14,7 @@ function AuxiliaresPage() {
     const navigate = useNavigate();
     const [auxiliares, setAuxiliares] = useState([]);
     const [showModal, setShowModal] = useState(false);
+    const [showModalNuevo, setShowModalNuevo] = useState(false);
     const [selectedAux, setSelectedAux] = useState(null);
 
     useEffect(() => {
@@ -62,6 +64,15 @@ function AuxiliaresPage() {
         setShowModal(true);
     };
 
+    const handleNew = (aux) => {
+        
+            
+        setShowModal(true);
+    };
+    const handleCrearNuevo = async() => {
+        console.log("crear nuevo auxiliar")
+        setShowModalNuevo(true)
+    }
     const handleSaveChanges = async () => {
         try {
             const auxRef = doc(db, 'usuarios', selectedAux.id);
@@ -138,7 +149,7 @@ function AuxiliaresPage() {
                             <Nav.Link onClick={() => navigate('/clientes')}>Clientes</Nav.Link>
                             <Nav.Link onClick={() => navigate('/auxiliares')}>Auxiliares</Nav.Link>
                             <Nav.Link onClick={() => navigate('/servicios')}>Servicios</Nav.Link>
-                            <Nav.Link onClick={() => navigate('/cronograma')}>Cronograma</Nav.Link>
+                            <Nav.Link onClick={() => navigate('/agenda')}>Agenda</Nav.Link>
 
                             <NavDropdown
                                 title={
@@ -169,8 +180,19 @@ function AuxiliaresPage() {
             <main className="main-content">
                 <Container className="mt-4">
                     <h2 className="page-title text-center mb-4">
-                        AUXILIARES DE SERVICIOS REGISTRADOS EN LUZJAIME ARTISTA EN BELLEZA
+                        AUXILIARES DE SERVICIOS REGISTRADOS
                     </h2>
+
+                    <Button
+                                                variant="warning"
+                                                
+                                                className="me-2"
+                                                onClick={() => handleCrearNuevo( )}
+                                            > Nuevo
+                                                < GrUserNew className='usernew'/>
+                                            </Button>
+
+
                     <div className="table-container">
                         <Table striped bordered hover responsive className="tabla-auxiliares">
                             <thead>
@@ -371,6 +393,139 @@ function AuxiliaresPage() {
                     </Button>
                     <Button variant="primary" onClick={handleSaveChanges}>
                         Guardar Cambios
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
+            {/* MODAL NUEVO */}
+            <Modal show={showModalNuevo} onHide={() => setShowModalNuevo(false)}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Nuevo Auxiliar</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    { (
+                        <Form>
+                            <Form.Group className="mb-2">
+                                <Form.Label>Nombres</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    name="nombres"
+                                    value={""}
+                                    onChange={handleModalChange}
+                                />
+                            </Form.Group>
+                            <Form.Group className="mb-2">
+                                <Form.Label>Apellidos</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    name="apellidos"
+                                    value={""}
+                                    onChange={handleModalChange}
+                                />
+                            </Form.Group>
+                            <Form.Group className="mb-2">
+                                <Form.Label>Cédula</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    name="cedula"
+                                    value={''}
+                                    onChange={handleModalChange}
+                                />
+                            </Form.Group>
+                            <Form.Group className="mb-2">
+                                <Form.Label>Teléfono</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    name="telefono"
+                                    value={''}
+                                    onChange={handleModalChange}
+                                />
+                            </Form.Group>
+                            <Form.Group className="mb-2">
+                                <Form.Label>Email</Form.Label>
+                                <Form.Control
+                                    type="email"
+                                    name="email"
+                                    value={''}
+                                    disabled
+                                />
+                            </Form.Group>
+                            <Form.Group className="mb-2">
+                                <Form.Label>Fecha de Nacimiento</Form.Label>
+                                <Form.Control
+                                    type="date"
+                                    name="fechaNacimiento"
+                                    value={''}
+                                    onChange={handleModalChange}
+                                />
+                                <Form.Group className="mb-2">
+                                    <Form.Label>Edad</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        name="edad"
+                                        value={''}
+                                        readOnly
+                                    />
+                                </Form.Group>
+                            </Form.Group>
+                            <Form.Group className="mb-2">
+                                <Form.Label>Sexo</Form.Label>
+                                <Form.Select
+                                    name="sexo"
+                                    value={''}
+                                    onChange={handleModalChange}
+                                >
+                                    <option value="">Seleccionar</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Femenino">Femenino</option>
+                                </Form.Select>
+                            </Form.Group>
+                            <Form.Group className="mb-2">
+                                <Form.Label>Estado</Form.Label>
+                                <Form.Select
+                                    name="estado"
+                                    value={''}
+                                    onChange={handleModalChange}
+                                >
+                                    <option>Pendiente</option>
+                                    <option>Activo</option>
+                                    <option>Inactivo</option>
+                                </Form.Select>
+                            </Form.Group>
+                            <Form.Group className="mb-2">
+
+                                <Form.Label>Rol</Form.Label>
+
+                                <Form.Select
+
+                                    name="rol"
+
+                                    value={"Auxiliar"}
+
+                                    onChange={handleModalChange}
+
+                                >
+
+                                    <option value="">-- Seleccione un rol --</option>
+
+                                    <option value="Admin">Admin</option>
+
+                                    <option value="Auxiliar">Auxiliar</option>
+                                    <option value="Cliente">Cliente</option>
+
+                                </Form.Select>
+
+                            </Form.Group>
+
+                        </Form>
+                    )}
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={() => setShowModalNuevo(false)}>
+                        Cancelar
+                    </Button>
+                    <Button variant="primary" onClick={handleCrearNuevo}>
+                        Crear auxiliar
                     </Button>
                 </Modal.Footer>
             </Modal>

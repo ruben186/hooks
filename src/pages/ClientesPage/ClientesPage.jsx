@@ -171,6 +171,8 @@ function ClientePage() {
                     <h2 className="page-title text-center mb-4">
                         CLIENTES REGISTRADOS 
                     </h2>
+
+                    
                     <div className="table-container">
                         <Table striped bordered hover responsive className="tabla-auxiliares">
                             <thead>
@@ -238,7 +240,7 @@ function ClientePage() {
 
             <footer className="footer mt-auto">
                 <Container className="text-center">
-                    <small>© 2025 Brilla. All rights reserved.</small>
+                    <small>© 2025 RC Seguridad  y Software All rights reserved.</small>
                 </Container>
             </footer>
 
